@@ -1,0 +1,173 @@
+﻿@model List<MonthModel>
+@{
+    ViewData["Title"] = "Custom Calendar";
+}
+
+<h2>Custom Calendar - @Model.First().Year</h2>
+<button onclick="changeYear(-1)">Previous Year</button>
+<button onclick="changeYear(1)">Next Year</button>
+
+@foreach (var month in Model)
+{
+    <h3>@month.Name - @month.Year</h3>
+    <table border="1">
+        <tr>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        <tr>
+            @foreach (var day in month.Days)
+            {
+                <td>@day.Date (@day.DayName)</td>
+                if (day.DayName == "Sunday")
+                {
+                    @: </tr><tr>
+                }
+            }
+        </tr>
+    </table>
+}
+<div>
+     <table>
+    
+    <tr>
+      <th  rowspan="3" ><span>◄</span></th>
+      <th colspan="3" rowspan="3">2019</th>
+      <th rowspan="3"> <span>►</span></th>
+      <th class="month apr">APR</th>
+      <th class="month jan">JAN</th>
+      <th class="month may">MAY</th>
+      <th class="month aug">AUG</th>
+      <th class="month feb">FEB</th>
+      <th class="month jun">JUN</th>
+      <th class="month sep">SEP</th>
+    </tr>
+    <tr>
+      <th class="month jul">JUL</th>
+      <th class="month oct">OCT</th>
+      <th></th>
+      <th></th>
+      <th class="month mar">MAR</th>
+      <th></th>
+      <th class="month dec">DEC</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th class="month nov">NOV</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th >1</th>
+      <th >8</th>
+      <th >15</th>
+      <th >22</th>
+      <th >29</th>
+      <td>MON</td>
+      <td>TUE</td>
+      <td>WED</td>
+      <td>THU</td>
+      <td>FRI</td>
+      <td>SAT</td>
+      <td class="sunday">SUN</td>
+    </tr>
+    <tr>
+      <th >2</th>
+        <th >9</th>
+      <th >16</th>
+      <th >23</th>
+      <th >30</th>
+      <td>TUE</td>
+      <td>WED</td>
+      <td>THU</td>
+      <td>FRI</td>
+      <td>SAT</td>
+      <td class="sunday">SUN</td>
+      <td>MON</td>
+    </tr>
+    <tr>
+      <th >3</th>
+        <th >10</th>
+      <th >17</th>
+      <th >24</th>
+      <th >31</th>
+      <td>WED</td>
+      <td>THU</td>
+      <td>FRI</td>
+      <td>SAT</td>
+      <td class="sunday">SUN</td>
+      <td>MON</td>
+      <td>TUE</td>
+    </tr>
+    <tr>
+      <th >4</th>
+        <th >11</th>
+      <th >18</th>
+      <th >25</th>
+      <th ></th>
+      <td>THU</td>
+      <td>FRI</td>
+      <td>SAT</td>
+      <td class="sunday">SUN</td>
+      <td>MON</td>
+      <td>TUE</td>
+      <td>WED</td>
+    </tr>
+    <tr>
+      <th >5</th>
+        <th >12</th>
+      <th >19</th>
+      <th >26</th>
+      <th ></th>
+      <td>FRI</td>
+      <td>SAT</td>
+      <td class="sunday">SUN</td>
+      <td>MON</td>
+      <td>TUE</td>
+      <td>WED</td>
+      <td>THU</td>
+    </tr>
+    <tr>
+      <th >6</th>
+        <th >13</th>
+      <th >20</th>
+      <th >27</th>
+      <th ></th>
+      <td>SAT</td>
+      <td class="sunday">SUN</td>
+      <td>MON</td>
+      <td>TUE</td>
+      <td>WED</td>
+      <td>THU</td>
+      <td>FRI</td>
+    </tr>
+    <tr>
+      <th >7</th>
+        <th >14</th>
+      <th >21</th>
+      <th >28</th>
+      <th ></th>
+      <td class="sunday">SUN</td>
+      <td>MON</td>
+      <td>TUE</td>
+      <td>WED</td>
+      <td>THU</td>
+      <td>FRI</td>
+      <td>SAT</td>
+    </tr>
+  </table>
+</div>
+<script>
+    function changeYear(offset) {
+        let currentYear = @Model.First().Year;
+        window.location.href = `/Home/Index?year=${currentYear + offset}`;
+    }
+</script>
