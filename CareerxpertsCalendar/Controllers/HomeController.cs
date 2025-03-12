@@ -13,7 +13,6 @@ namespace CareerxpertsCalendar.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index(int year = 0)
         {
             if (year == 0) year = DateTime.Now.Year;
@@ -31,10 +30,11 @@ namespace CareerxpertsCalendar.Controllers
                 {
                     Name = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month),
                     Year = year,
+                    FirstDayOfWeek = Convert.ToInt32(new DateTime(year, month, 1).DayOfWeek),
                     Days = GenerateDays(year, month)
                 });
             }
-            return months;
+            return months.OrderBy(m => m.FirstDayOfWeek).ToList();
         }
 
         private List<DayModel> GenerateDays(int year, int month)
@@ -53,7 +53,6 @@ namespace CareerxpertsCalendar.Controllers
             }
             return days;
         }
-      
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -4,6 +4,7 @@
     {
         public string Name { get; set; }
         public int Year { get; set; }
+        public int FirstDayOfWeek { get; set; }
         public List<DayModel> Days { get; set; }
     }
     public class DayModel

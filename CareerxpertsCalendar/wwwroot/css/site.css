@@ -39,67 +39,16 @@ th, td {
     color: teal;
 }
 
-.feb {
+.color-28 {
     color: goldenrod;
-}
-
-.mar {
-    color: teal;
 }
 
 .apr {
     color: purple;
 }
 
-.may {
-    color: teal;
-}
 
-.jun {
-    color: purple;
-}
-
-.jul {
-    color: teal;
-}
-
-.aug {
-    color: teal;
-}
-
-.sep {
-    color: purple;
-}
-
-.oct {
-    color: teal;
-}
-
-.nov {
-    color: purple;
-}
-
-.dec {
-    color: teal;
-}
-
-.date-num {
-    padding: 4px;
-}
-
-.highlight {
-    background-color: #ffffcc;
-}
 
 .sunday {
     color: red;
-}
-
-.year-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
 }
